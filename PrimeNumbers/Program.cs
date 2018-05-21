@@ -12,22 +12,25 @@ namespace PrimeNumbers
     {
         public static void Main(string[] args)
         {
-            bool isPrime = true;
             for (int i = 2; i <= 100; i++)
             {
+                int isPrime = 0;
                 for (int j = 1; j < i; j++)
                 {
-                    if (j % i == 0)
+                    if (i % j == 0)
                     {
-                        isPrime = false;
-                        break;
+                        isPrime++;
+                        if (isPrime == 2)
+                        {
+                            break;
+                        }
                     }
                 }
-                if (isPrime)
+                if (isPrime != 2) 
                 {
                     Console.WriteLine(i);
                 }
-                isPrime = true;
+                isPrime = 0;
             }
             Console.ReadLine();
         }
